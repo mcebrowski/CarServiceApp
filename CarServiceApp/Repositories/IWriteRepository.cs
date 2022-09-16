@@ -6,6 +6,8 @@ namespace CarServiceApp.Repositories
     {
         void Add(T item);
         void Remove(T item);
+        void LoadDataFromFile();
         void Save();
+        void SaveToFile();
     }
 }
