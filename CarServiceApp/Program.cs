@@ -1,4 +1,5 @@
-﻿using CarServiceApp.Data;
+﻿using System.Reflection;
+using CarServiceApp.Data;
 using CarServiceApp.Entities;
 using CarServiceApp.Repositories;
 using CarServiceApp.Repositories.Extensions;
@@ -6,12 +7,34 @@ using CarServiceApp.Repositories.Extensions;
 var employeeRepository = new SqlRepository<Employee>(new CarServiceAppDbContext());
 //var clientRepository = new SqlRepository<Client>(new CarServiceAppDbContext());
 
-employeeRepository.ItemAdded += EmployeeRepositoryOnItemAdded;
+employeeRepository.ItemAdded += (object? sender, Employee e) => EmployeeRepositoryOnItemAdded("Employee added", sender, e);
+employeeRepository.ItemRemoved += (object? sender, Employee e) => EmployeeRepositoryOnItemRemoved("Employee removed", sender, e);
+employeeRepository.FileOverwritten += (object? sender, EventArgs e) => EmployeeRepositoryOnFileOverwritten("Database file has been saved and overwritten");
+employeeRepository.FileLoaded += (object? sender, EventArgs e) => EmployeeRepositoryOnFileLoaded("Database has been loaded from file");
 LoadAllDataFromFile(employeeRepository);
 
-void EmployeeRepositoryOnItemAdded(object? sender, Employee e)
+void EmployeeRepositoryOnItemAdded(string description, object? sender, Employee e)
 {
-    Console.WriteLine($" Employee added => {e.FirstName} {e.LastName} from {sender?.GetType().Name}");
+    var sendingEvent = sender?.GetType().Name;
+    Console.WriteLine($"{description} => {e.FirstName} {e.LastName} from {sendingEvent}");
+    employeeRepository.SaveToAuditFile(description, sendingEvent, e);
+}
+
+void EmployeeRepositoryOnItemRemoved(string description, object? sender, Employee e)
+{
+    var sendingEvent = sender?.GetType().Name;
+    Console.WriteLine($"{description} => {e.FirstName} {e.LastName} from {sendingEvent}");
+    employeeRepository.SaveToAuditFile(description, sendingEvent, e);
+}
+
+void EmployeeRepositoryOnFileOverwritten(string description)
+{
+    employeeRepository.SaveToAuditFile(description);
+}
+
+void EmployeeRepositoryOnFileLoaded(string description)
+{
+    employeeRepository.SaveToAuditFile(description);
 }
 
 var firstName = "";
@@ -65,16 +88,6 @@ void SelectedOption(string selectedOption)
     }
 }
 
-
-//AddEmployees(employeeRepository);
-//AddManagers(employeeRepository);
-//RemoveEmployeeById(employeeRepository);
-//WriteAllToConsole(employeeRepository);
-
-//AddClients(clientRepository);
-//WriteAllToConsole(clientRepository);
-
-
 void AddEmployee(IRepository<Employee> employeeRepository)
 {
     employeeRepository.Add(new Employee { FirstName = firstName, LastName = lastName });
@@ -97,7 +110,6 @@ static void AddEmployees(IRepository<Employee> employeeRepository)
     employeeRepository.AddBatch(employees);
 }
 
-
 static void WriteAllToConsole(IReadRepository<IEntity> repository)
 {
     var items = repository.GetAll();
@@ -109,7 +121,6 @@ static void WriteAllToConsole(IReadRepository<IEntity> repository)
 
 void LoadAllDataFromFile(IReadRepository<IEntity> repository)
 {
-
     repository.LoadDataFromFile();
 }
 
@@ -120,11 +131,18 @@ void RemoveEmployeeById(IRepository<Employee> employeeRepository)
 
     if (id != 0)
     {
-        Console.WriteLine($"Id to delete: {idToDelete}");
-        var empToDelete = employeeRepository.GetById(Int32.Parse(idToDelete));
-        Console.WriteLine(empToDelete);
-        employeeRepository.Remove(empToDelete);
-        employeeRepository.Save();
+        var empToDelete = employeeRepository.GetById(id);
+        if (empToDelete != null)
+        {
+            //Console.WriteLine($"Id to delete: {id}");
+            //Console.WriteLine($"You have removed {empToDelete} from the database");
+            employeeRepository.Remove(empToDelete);
+            employeeRepository.Save();
+        }
+        else
+        {
+            Console.WriteLine($"There is no employee with id number: {id} in database. Please enter valid id");
+        }
     }
     else
     {
@@ -139,22 +157,3 @@ void RemoveEmployeeById(IRepository<Employee> employeeRepository)
     managerRepository.Add(new Manager { FirstName = "Zbigniew", LastName = "Wolny" });
     managerRepository.Save();
 }
-
-static void RemoveEmployeeById(IRepository<Employee> employeeRepository)
-{
-    var employee = employeeRepository.GetById(2);
-    Console.WriteLine($"Deleted employee: {employee}");
-    employeeRepository.Remove(employee);
-    employeeRepository.Save();
-}
-
-static void AddClients(IRepository<Client> clientRepository)
-{
-    clientRepository.Add(new Client { FirstName = "Dominika", LastName = "Jasińska" });
-    clientRepository.Add(new Client { FirstName = "Waldemar", LastName = "Jasny" });
-    clientRepository.Add(new Client { FirstName = "Marcin", LastName = "Kowalski" });
-    clientRepository.Save();
-}*/
-
-
-

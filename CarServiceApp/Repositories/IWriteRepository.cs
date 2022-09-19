@@ -9,5 +9,6 @@ namespace CarServiceApp.Repositories
         void LoadDataFromFile();
         void Save();
         void SaveToFile();
+        void SaveToAuditFile(string description, string sendingEvent, Employee e);
     }
 }
