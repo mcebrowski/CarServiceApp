@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
+﻿using System.Text.Json;
+using CarServiceApp.Data;
 using CarServiceApp.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,27 +7,27 @@ namespace CarServiceApp.Repositories
 {
     public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
-        private readonly DbContext _dbContext;
+        private readonly CarServiceAppDbContext _dbContext;
         private readonly DbSet<T> _dbSet;
 
-        private const string fileName = $@"D:\Dropbox\CODING2022\C#\repos\CarServiceApp\CarServiceApp\Data\Employees.json";
+        private const string fileName = $@"D:\Dropbox\CODING2022\C#\repos\CarServiceApp\CarServiceApp\Data\";
 
         private const string auditFileName = $@"D:\Dropbox\CODING2022\C#\repos\CarServiceApp\CarServiceApp\Data\Audit.txt";
-
+         
         public event EventHandler<T>? ItemAdded;
-        public event EventHandler<T>? ItemRemoved;
-        public event EventHandler? FileOverwritten;
+        public event EventHandler<T>? ItemRemoved;        
+        //public event EventHandler? FileOverwritten;
         public event EventHandler? FileLoaded;
 
-        public SqlRepository(DbContext dbContext)
+        public SqlRepository(CarServiceAppDbContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = dbContext.Set<T>();
         }
-
+        
         public IEnumerable<T> GetAll()
         {
-            return _dbSet.ToList().OrderBy(a => a.Id);
+            return _dbSet.OrderBy(a => a.Id).ToList();
         }
 
         public T? GetById(int id)
@@ -40,24 +38,27 @@ namespace CarServiceApp.Repositories
         public void Add(T item)
         {
             _dbSet.Add(item);
+            Save();
             ItemAdded?.Invoke(this, item);
         }
 
         public void Remove(T item)
         {
             _dbSet.Remove(item);
+            Save();
             ItemRemoved?.Invoke(this, item);
         }
 
         public void Save()
         {
             _dbContext.SaveChanges();
+            SaveToFile();
         }
 
         public void SaveToFile()
         {
-            File.Delete(fileName);
-            using (var writer = File.AppendText(fileName))
+            string date = DateTime.Now.ToString("dd-MM-yyyy hh-mm-ss");
+            using (var writer = File.AppendText($"{fileName}Employees - [{date}]"+".json"))
             {
                 foreach (var item in _dbSet)
                 {
@@ -65,16 +66,15 @@ namespace CarServiceApp.Repositories
                     writer.WriteLine(employee);
                 }
             }
-            FileOverwritten?.Invoke(this, EventArgs.Empty);
             Console.WriteLine($"\n--- All data has been saved in file ---");
         }
 
-        public void SaveToAuditFile(string description, string sendingEvent, Employee e)
+        public void SaveToAuditFile(string description, Employee e)
         {
             DateTime actualTime = DateTime.UtcNow;
             using (var auditWriter = File.AppendText(auditFileName))
             {
-                auditWriter.WriteLine($"{actualTime} - {description} - {e.FirstName} {e.LastName}");
+                auditWriter.WriteLine($"{actualTime} - {description} - {e}");
             }
         }
 

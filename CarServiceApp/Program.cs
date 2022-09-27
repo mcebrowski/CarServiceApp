@@ -1,9 +1,58 @@
-﻿using System.Reflection;
+﻿using CarServiceApp;
 using CarServiceApp.Data;
+using CarServiceApp.DataProviders;
 using CarServiceApp.Entities;
 using CarServiceApp.Repositories;
-using CarServiceApp.Repositories.Extensions;
+using CarServiceApp.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
+var services = new ServiceCollection();
+services.AddSingleton<IApp, App>();
+services.AddSingleton<IEmployeesProvider, EmployeesProvider>();
+services.AddSingleton<IRepository<Employee>, SqlRepository<Employee>>();
+services.AddSingleton<IDataHandler, DataHandlerSql>();
+services.AddSingleton<IUserHandler, UserHandler>();
+services.AddSingleton<IEventsHandler, EventsHandler>();
+services.AddSingleton<IEmployeesDetailsHandler, EmployeesDetailsHandler>();
+services.AddDbContext<CarServiceAppDbContext>(options => options
+    .UseSqlServer("Data Source = DESKTOP-MIKO\\SQLEXPRESS; Initial Catalog = CarServiceAppStorage; Integrated Security = True;"));
+//services.AddDbContext<CarServiceAppDbContext>(options => options
+//    .UseSqlServer("Data Source = MIKO-DOM\\SQLEXPRESS; Initial Catalog = CarServiceAppStorage; Integrated Security = True;"));
+
+
+var serviceProvider = services.BuildServiceProvider();
+var app = serviceProvider.GetService<IApp>();
+
+app?.Run();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 var employeeRepository = new SqlRepository<Employee>(new CarServiceAppDbContext());
 //var clientRepository = new SqlRepository<Client>(new CarServiceAppDbContext());
 
@@ -151,9 +200,9 @@ void RemoveEmployeeById(IRepository<Employee> employeeRepository)
 }
 
 
-/*static void AddManagers(IWriteRepository<Manager> managerRepository)
+static void AddManagers(IWriteRepository<Manager> managerRepository)
 {
     managerRepository.Add(new Manager { FirstName = "Kamil", LastName = "Pawlak" });
     managerRepository.Add(new Manager { FirstName = "Zbigniew", LastName = "Wolny" });
     managerRepository.Save();
-}
+}*/

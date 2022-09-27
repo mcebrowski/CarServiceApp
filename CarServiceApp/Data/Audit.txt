@@ -1,141 +1,20 @@
-19.09.2022 09:42:51 - employee
-19.09.2022 09:42:51 - employee
-19.09.2022 09:42:51 - employee
-19.09.2022 09:42:51 - employee
-19.09.2022 09:42:51 - employee
-19.09.2022 09:42:51 - employee
-19.09.2022 09:42:51 - employee
-19.09.2022 09:42:58 - employee
-19.09.2022 09:43:09 - employee
-19.09.2022 09:43:09 - employee
-19.09.2022 09:43:48 - employee
-19.09.2022 09:43:48 - employee
-19.09.2022 09:44:36 - employee
-19.09.2022 09:52:10 - Anna
-19.09.2022 09:52:10 - Monika
-19.09.2022 09:52:10 - Damian
-19.09.2022 09:52:10 - Damian
-19.09.2022 09:52:10 - Monika
-19.09.2022 09:52:10 - Anna
-19.09.2022 09:52:10 - miko
-19.09.2022 09:52:16 - tom
-19.09.2022 09:59:19 - Anna
-19.09.2022 09:59:19 - Monika
-19.09.2022 09:59:19 - Damian
-19.09.2022 09:59:19 - Damian
-19.09.2022 09:59:19 - Monika
-19.09.2022 09:59:19 - Anna
-19.09.2022 09:59:19 - miko
-19.09.2022 10:06:18 - Anna
-19.09.2022 10:06:18 - Monika
-19.09.2022 10:06:18 - Damian
-19.09.2022 10:06:18 - Damian
-19.09.2022 10:06:18 - Monika
-19.09.2022 10:06:18 - Anna
-19.09.2022 10:06:18 - miko
-19.09.2022 10:08:34 - Anna
-19.09.2022 10:08:34 - Monika
-19.09.2022 10:08:34 - Damian
-19.09.2022 10:08:34 - Damian
-19.09.2022 10:08:34 - Monika
-19.09.2022 10:08:34 - Anna
-19.09.2022 10:08:34 - miko
-19.09.2022 10:08:47 - Monika
-19.09.2022 10:21:47 - Anna
-19.09.2022 10:21:47 - Monika
-19.09.2022 10:21:47 - Damian
-19.09.2022 10:21:47 - Damian
-19.09.2022 10:21:47 - Monika
-19.09.2022 10:21:47 - Anna
-19.09.2022 10:21:47 - miko
-19.09.2022 10:25:59 - Employee added - Anna Nowakowska
-19.09.2022 10:25:59 - Employee added - Monika Dziuba
-19.09.2022 10:25:59 - Employee added - Damian Bednarz
-19.09.2022 10:25:59 - Employee added - Damian Bednarz
-19.09.2022 10:25:59 - Employee added - Monika Dziuba
-19.09.2022 10:25:59 - Employee added - Anna Nowakowska
-19.09.2022 10:25:59 - Employee added - miko miko
-19.09.2022 10:26:12 - Employee added - tom tom
-19.09.2022 10:26:56 - Employee removed - Monika Dziuba
-19.09.2022 10:56:25 - Employee added - Anna Nowakowska
-19.09.2022 10:56:25 - Employee added - Monika Dziuba
-19.09.2022 10:56:25 - Employee added - Damian Bednarz
-19.09.2022 10:56:25 - Employee added - Damian Bednarz
-19.09.2022 10:56:25 - Employee added - Monika Dziuba
-19.09.2022 10:56:25 - Employee added - Anna Nowakowska
-19.09.2022 10:56:25 - Employee added - miko miko
-19.09.2022 10:56:30 - Employee added - Anna Nowakowska
-19.09.2022 10:56:30 - Employee added - Monika Dziuba
-19.09.2022 10:56:30 - Employee added - Damian Bednarz
-19.09.2022 10:56:36 - Database file has been saved and overritten
-19.09.2022 10:59:18 - Employee added - Anna Nowakowska
-19.09.2022 10:59:18 - Employee added - Monika Dziuba
-19.09.2022 10:59:18 - Employee added - Damian Bednarz
-19.09.2022 10:59:18 - Employee added - Damian Bednarz
-19.09.2022 10:59:18 - Employee added - Monika Dziuba
-19.09.2022 10:59:18 - Employee added - Anna Nowakowska
-19.09.2022 10:59:18 - Employee added - miko miko
-19.09.2022 10:59:18 - Employee added - Anna Nowakowska
-19.09.2022 10:59:18 - Employee added - Monika Dziuba
-19.09.2022 10:59:18 - Employee added - Damian Bednarz
-19.09.2022 10:59:18 - Database has been loaded from file
-19.09.2022 10:59:25 - Employee added - tom tom
-19.09.2022 10:59:27 - Employee added - Anna Nowakowska
-19.09.2022 10:59:27 - Employee added - Monika Dziuba
-19.09.2022 10:59:27 - Employee added - Damian Bednarz
-19.09.2022 10:59:33 - Employee removed - Monika Dziuba
-19.09.2022 10:59:34 - Database file has been saved and overritten
-19.09.2022 11:02:06 - Employee added - Anna Nowakowska
-19.09.2022 11:02:06 - Employee added - Damian Bednarz
-19.09.2022 11:02:06 - Employee added - Damian Bednarz
-19.09.2022 11:02:06 - Employee added - Monika Dziuba
-19.09.2022 11:02:06 - Employee added - Anna Nowakowska
-19.09.2022 11:02:06 - Employee added - miko miko
-19.09.2022 11:02:06 - Employee added - Anna Nowakowska
-19.09.2022 11:02:06 - Employee added - Monika Dziuba
-19.09.2022 11:02:06 - Employee added - Damian Bednarz
-19.09.2022 11:02:06 - Employee added - tom tom
-19.09.2022 11:02:06 - Employee added - Anna Nowakowska
-19.09.2022 11:02:06 - Employee added - Monika Dziuba
-19.09.2022 11:02:06 - Employee added - Damian Bednarz
-19.09.2022 11:02:06 - Database has been loaded from file
-19.09.2022 11:02:35 - Employee added - Anna Nowakowska
-19.09.2022 11:02:35 - Employee added - Damian Bednarz
-19.09.2022 11:02:35 - Employee added - Damian Bednarz
-19.09.2022 11:02:35 - Employee added - Monika Dziuba
-19.09.2022 11:02:35 - Employee added - Anna Nowakowska
-19.09.2022 11:02:35 - Employee added - miko miko
-19.09.2022 11:02:35 - Employee added - Anna Nowakowska
-19.09.2022 11:02:35 - Employee added - Monika Dziuba
-19.09.2022 11:02:35 - Employee added - Damian Bednarz
-19.09.2022 11:02:35 - Employee added - tom tom
-19.09.2022 11:02:35 - Employee added - Anna Nowakowska
-19.09.2022 11:02:35 - Employee added - Monika Dziuba
-19.09.2022 11:02:35 - Employee added - Damian Bednarz
-19.09.2022 11:02:35 - Database has been loaded from file
-19.09.2022 11:02:51 - Employee added - Anna Nowakowska
-19.09.2022 11:02:51 - Employee added - Damian Bednarz
-19.09.2022 11:02:51 - Employee added - Damian Bednarz
-19.09.2022 11:02:51 - Employee added - Monika Dziuba
-19.09.2022 11:02:51 - Employee added - Anna Nowakowska
-19.09.2022 11:02:51 - Employee added - miko miko
-19.09.2022 11:02:51 - Employee added - Anna Nowakowska
-19.09.2022 11:02:51 - Employee added - Monika Dziuba
-19.09.2022 11:02:51 - Employee added - Damian Bednarz
-19.09.2022 11:02:51 - Employee added - tom tom
-19.09.2022 11:02:51 - Employee added - Anna Nowakowska
-19.09.2022 11:02:51 - Employee added - Monika Dziuba
-19.09.2022 11:02:51 - Employee added - Damian Bednarz
-19.09.2022 11:02:51 - Database has been loaded from file
-19.09.2022 11:03:08 - Employee removed - Monika Dziuba
-19.09.2022 11:03:36 - Employee removed - Anna Nowakowska
-19.09.2022 11:03:40 - Database file has been saved and overwritten
-19.09.2022 11:21:41 - Database has been loaded from file
-19.09.2022 11:22:29 - Employee added - Anna Nowakowska
-19.09.2022 11:22:29 - Employee added - Monika Dziuba
-19.09.2022 11:22:29 - Employee added - Damian Bednarz
-19.09.2022 11:22:32 - Database file has been saved and overwritten
-19.09.2022 11:22:45 - Employee added - Anna Nowakowska
-19.09.2022 11:22:45 - Employee added - Monika Dziuba
-19.09.2022 11:22:45 - Employee added - Damian Bednarz
-19.09.2022 11:22:45 - Database has been loaded from file
+27.09.2022 11:25:47 - Employee Added - Id: 10
+   First name: tom    Last name: tom
+   Department: MechanicalWorkshop
+   Salary: 9900   Age: 24
+   Employeed from: 30-08-2021
+
+27.09.2022 11:27:02 - Employee Removed - Id: 5
+   First name: Zbigniew    Last name: Wolny
+   Department: BodyAndPaintWorkshop
+   Manager of this department
+   Salary: 11700,00   Age: 47
+   Employeed from: 10-07-2004
+
+27.09.2022 11:30:30 - Employee Added - Id: 11
+   First name: Zbigniew    Last name: Wolny
+   Department: BodyAndPaintWorkshop
+   Manager of this department
+   Salary: 11700   Age: 47
+   Employeed from: 10-07-2004
+
