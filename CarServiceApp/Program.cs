@@ -1,6 +1,8 @@
 ﻿using CarServiceApp;
 using CarServiceApp.Data;
+using CarServiceApp.Data.CsvReader;
 using CarServiceApp.Data.DummyData;
+using CarServiceApp.Data.XmlHandler;
 using CarServiceApp.DataProviders;
 using CarServiceApp.Entities;
 using CarServiceApp.Repositories;
@@ -21,6 +23,8 @@ services.AddSingleton<IEmployeeMenuHandler, EmployeeMenuHandler>();
 services.AddSingleton<IEmployeesDetailsHandler, EmployeesDetailsHandler>();
 services.AddSingleton<IClientMenuHandler, ClientMenuHandler>();
 services.AddSingleton<IEventsHandler, EventsHandler>();
+services.AddSingleton<ICsvReader, CsvReader>();
+services.AddSingleton<IXmlHandler, XmlHandler>();
 services.AddDbContext<CarServiceAppDbContext>(options => options
    .UseSqlServer("Data Source = DESKTOP-MIKO\\SQLEXPRESS; Initial Catalog = CarServiceAppStorage; Integrated Security = True;"));
 //services.AddDbContext<CarServiceAppDbContext>(options => options
