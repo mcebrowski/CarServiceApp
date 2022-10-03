@@ -10,14 +10,14 @@ namespace CarServiceApp.Repositories
         private readonly CarServiceAppDbContext _dbContext;
         private readonly DbSet<T> _dbSet;
 
-        private const string fileName = $@"D:\Dropbox\CODING2022\C#\repos\CarServiceApp\CarServiceApp\Data\";
+        private const string fileName = $@"D:\Dropbox\CODING2022\C#\repos\CarServiceApp\CarServiceApp\Data\OutputData\";
 
-        private const string auditFileName = $@"D:\Dropbox\CODING2022\C#\repos\CarServiceApp\CarServiceApp\Data\Audit.txt";
+        private const string auditFileName = $@"D:\Dropbox\CODING2022\C#\repos\CarServiceApp\CarServiceApp\Data\OutputData\Audit.txt";
          
         public event EventHandler<T>? ItemAdded;
-        public event EventHandler<T>? ItemRemoved;        
-        //public event EventHandler? FileOverwritten;
-        public event EventHandler? FileLoaded;
+        public event EventHandler<T>? ItemRemoved;
+
+        //public event EventHandler? FileLoaded; //not used now
 
         public SqlRepository(CarServiceAppDbContext dbContext)
         {
@@ -38,27 +38,21 @@ namespace CarServiceApp.Repositories
         public void Add(T item)
         {
             _dbSet.Add(item);
-            Save();
+            _dbContext.SaveChanges();
             ItemAdded?.Invoke(this, item);
         }
 
         public void Remove(T item)
         {
             _dbSet.Remove(item);
-            Save();
+            _dbContext.SaveChanges();
             ItemRemoved?.Invoke(this, item);
         }
 
-        public void Save()
-        {
-            _dbContext.SaveChanges();
-            SaveToFile();
-        }
-
-        public void SaveToFile()
+        public void Save(string description)
         {
             string date = DateTime.Now.ToString("dd-MM-yyyy hh-mm-ss");
-            using (var writer = File.AppendText($"{fileName}Employees - [{date}]"+".json"))
+            using (var writer = File.AppendText($"{fileName}{description} - [{date}]"+".json"))
             {
                 foreach (var item in _dbSet)
                 {
@@ -69,9 +63,9 @@ namespace CarServiceApp.Repositories
             Console.WriteLine($"\n--- All data has been saved in file ---");
         }
 
-        public void SaveToAuditFile(string description, Employee e)
+        public void SaveToAuditFile(string description, T e)
         {
-            DateTime actualTime = DateTime.UtcNow;
+            DateTime actualTime = DateTime.Now;
             using (var auditWriter = File.AppendText(auditFileName))
             {
                 auditWriter.WriteLine($"{actualTime} - {description} - {e}");
@@ -87,7 +81,7 @@ namespace CarServiceApp.Repositories
             }
         }
 
-        public void LoadDataFromFile()
+        /*public void LoadDataFromFile() //not used now
         {
             if (File.Exists(fileName))
             {
@@ -116,7 +110,7 @@ namespace CarServiceApp.Repositories
             {
                 Console.WriteLine("There is now file with data. Please add some to database and then save it to the file");
             }
-        }
+        }*/
     }
 }
 

@@ -1,4 +1,4 @@
-﻿namespace CarServiceApp.Services
+﻿namespace CarServiceApp.UI
 {
     public interface IEmployeesDetailsHandler
     {

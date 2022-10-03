@@ -1,13 +1,13 @@
 ﻿using CarServiceApp.Data;
 using CarServiceApp.Entities;
 
-namespace CarServiceApp.Services
+namespace CarServiceApp.Data.DummyData
 {
-    public class DataHandlerSql : DataHandler, IDataHandler 
+    public class DummyDataHandlerSql : DummyDataHandler, IDummyDataHandler
     {
         private readonly CarServiceAppDbContext _dbContext;
 
-        public DataHandlerSql(CarServiceAppDbContext dbContext)
+        public DummyDataHandlerSql(CarServiceAppDbContext dbContext)
         {
             _dbContext = dbContext;
         }

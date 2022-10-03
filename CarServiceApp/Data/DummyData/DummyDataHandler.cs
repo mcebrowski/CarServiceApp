@@ -1,8 +1,8 @@
 ﻿using CarServiceApp.Entities;
 
-namespace CarServiceApp.Services
+namespace CarServiceApp.Data.DummyData
 {
-    public abstract class DataHandler : IDataHandler
+    public abstract class DummyDataHandler : IDummyDataHandler
     {
         public abstract void AddEmployees();
 

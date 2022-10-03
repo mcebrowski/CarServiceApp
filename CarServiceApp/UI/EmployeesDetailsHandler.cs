@@ -1,8 +1,9 @@
 ﻿using CarServiceApp.DataProviders;
+using CarServiceApp.Services;
 
-namespace CarServiceApp.Services
+namespace CarServiceApp.UI
 {
-    public class EmployeesDetailsHandler : UserHandlerBase, IEmployeesDetailsHandler
+    public class EmployeesDetailsHandler : UserInputHandler, IEmployeesDetailsHandler
     {
         private readonly IEmployeesProvider _employeesProvider;
         public EmployeesDetailsHandler(IEmployeesProvider employeesProvider)
@@ -84,7 +85,7 @@ namespace CarServiceApp.Services
         {
             Console.WriteLine("\nList of all employees ordered by last name and first name\n");
             var employees = _employeesProvider.OrderByLastNameAndFirstName();
-            foreach( var employee in employees)
+            foreach (var employee in employees)
             {
                 Console.WriteLine(employee);
             }
@@ -123,11 +124,11 @@ namespace CarServiceApp.Services
                 {
                     Console.WriteLine(employee);
                 }
-            } 
+            }
             else
             {
                 Console.WriteLine("Minimum salary has to be entered as integer number");
-            } 
+            }
         }
 
         private void GetEmployeesOlderThen()
@@ -144,7 +145,7 @@ namespace CarServiceApp.Services
                     Console.WriteLine(employee);
                 }
             }
-            else 
+            else
             {
                 Console.WriteLine("Minimum age has to be entered as integer number");
             }
@@ -176,7 +177,7 @@ namespace CarServiceApp.Services
             string departmentName;
             if (num == 1)
             {
-                departmentName = "Customer Service"; 
+                departmentName = "Customer Service";
             }
             else if (num == 2)
             {

@@ -10,7 +10,7 @@ namespace CarServiceApp.Repositories.Extensions
             {
                 repository.Add(item);
             }
-            repository.Save();
+            repository.Save("Test");
         }
     }
 }

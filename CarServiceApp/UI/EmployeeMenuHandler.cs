@@ -1,16 +1,15 @@
-﻿using System;
-using System.Net.Security;
-using CarServiceApp.Entities;
+﻿using CarServiceApp.Entities;
 using CarServiceApp.Repositories;
+using CarServiceApp.Services;
 
-namespace CarServiceApp.Services
+namespace CarServiceApp.UI
 {
-    public class UserHandler : UserHandlerBase, IUserHandler
+    public class EmployeeMenuHandler : UserInputHandler, IEmployeeMenuHandler
     {
         private readonly IRepository<Employee> _employeeRepository;
         private readonly IEmployeesDetailsHandler _employeesDetailsProvider;
 
-        public UserHandler(IRepository<Employee> employeeRepository, IEmployeesDetailsHandler employeesDetailsProvider)
+        public EmployeeMenuHandler(IRepository<Employee> employeeRepository, IEmployeesDetailsHandler employeesDetailsProvider)
         {
             _employeeRepository = employeeRepository;
             _employeesDetailsProvider = employeesDetailsProvider;
@@ -18,16 +17,16 @@ namespace CarServiceApp.Services
 
         public void SelectYourOption()
         {
-            bool EndWorking = false;
-            while (!EndWorking)
+            bool endWorking = false;
+            while (!endWorking)
             {
-                Console.WriteLine("--- MAIN MENU --- \n");
+                Console.WriteLine("--- EMPLOYEES MENU --- \n");
                 Console.WriteLine("1 - List of all employees\n");
                 Console.WriteLine("2 - Add new employee\n");
                 Console.WriteLine("3 - Find employee by id\n");
                 Console.WriteLine("4 - Remove employee by id\n");
                 Console.WriteLine("5 - Get more data about employees\n");
-                Console.WriteLine("Q - Save Changes and close the app\n");
+                Console.WriteLine("Q - Save Changes and go to main menu\n");
 
                 var userInput = GetUserInput("Please select valid option \nPress key: 1, 2, 3, 4, 5 or Q: ").ToUpper();
 
@@ -49,14 +48,13 @@ namespace CarServiceApp.Services
                         _employeesDetailsProvider.GetEmployeesDetails();
                         break;
                     case "Q":
-                        EndWorking = CloseAndSave(_employeeRepository);
+                        endWorking = CloseAndSave(_employeeRepository);
                         break;
                     default:
                         Console.WriteLine($"Invalid input. You have entered [{userInput}]. Please select valid option");
                         continue;
                 }
             }
-            Console.WriteLine("\nGoodbye, see you later");
         }
 
         private void WriteAllToConsole(IRepository<Employee> employeeRepository)
@@ -82,7 +80,7 @@ namespace CarServiceApp.Services
             var salary = GetUserInput("Salary:");
             while (true)
             {
-                var department = GetUserInput("Employee department:\tCustomer Service: 1\tSpare Parts: 2\tBody and Paint Workshop: 3\tMechanical Workshop: 4");
+                var department = GetUserInput("Employee department:\n\tCustomer Service: 1\n\tSpare Parts: 2\n\tBody and Paint Workshop: 3\n\tMechanical Workshop: 4");
                 int departmentValue;
                 var isParsed = int.TryParse(department, out departmentValue);
                 if (isParsed && departmentValue > 0 && departmentValue < 4)
@@ -192,11 +190,11 @@ namespace CarServiceApp.Services
         {
             while (true)
             {
-                var answer = GetUserInput("Do you want to save changes before closing?\nPress Y if YES\t\tPress N if NO").ToUpper();
+                var answer = GetUserInput("Do you want to write changes to the file before leaving to main menu?\nPress Y if YES\t\tPress N if NO").ToUpper();
                 if (answer == "Y")
                 {
-                    employeeRepository.Save();
-                    Console.WriteLine("Saved successfully");
+                    employeeRepository.Save("Employees");
+                    Console.WriteLine("All changes has been saved in file successfully\n");
                     return true;
                 }
                 else if (answer == "N")

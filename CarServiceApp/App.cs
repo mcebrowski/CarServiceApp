@@ -1,23 +1,28 @@
 ﻿using CarServiceApp.Data;
+using CarServiceApp.Data.DummyData;
 using CarServiceApp.Services;
+using CarServiceApp.UI;
 
 namespace CarServiceApp
 {
     public class App : IApp
     {
-        private readonly IDataHandler _dataHandler;
-        private readonly IUserHandler _userHandler;
+        private readonly IDummyDataHandler _dataHandler;
+        private readonly IMainMenuHandler _mainMenuHandler;
+        //private readonly IEmployeeMenuHandler employeeMenuHandler;
         private readonly IEventsHandler _eventsHandler;
         private readonly CarServiceAppDbContext _carServiceAppDbContext;
 
         public App(
-            IDataHandler dataHandler,
-            IUserHandler userHandler,
+            IDummyDataHandler dataHandler,
+            IMainMenuHandler mainMenuHandler,
+            IEmployeeMenuHandler userHandler,
             IEventsHandler eventsHandler,
             CarServiceAppDbContext carServiceAppDbContext)
         {
             _dataHandler = dataHandler;
-            _userHandler = userHandler;
+            _mainMenuHandler = mainMenuHandler;
+            //_userHandler = userHandler;
             _eventsHandler = eventsHandler;
             _carServiceAppDbContext = carServiceAppDbContext;
             _carServiceAppDbContext.Database.EnsureCreated();
@@ -28,7 +33,8 @@ namespace CarServiceApp
             Console.WriteLine("\n***** Welcome to Car Service Application *****\n");
             _eventsHandler.SubscribeToEvents();
             _dataHandler.AddEmployees();
-            _userHandler.SelectYourOption();
+            _dataHandler.AddClients();
+            _mainMenuHandler.SelectMainOption();
         }
     }
 }

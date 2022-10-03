@@ -6,7 +6,7 @@ namespace CarServiceApp.Repositories
     {
         IEnumerable<T> GetAll();
 
-        void LoadDataFromFile();
+        //void LoadDataFromFile();
 
         T GetById(int id);
     }

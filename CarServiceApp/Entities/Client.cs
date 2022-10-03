@@ -1,11 +1,21 @@
-﻿namespace CarServiceApp.Entities
+﻿using System.Text;
+
+namespace CarServiceApp.Entities
 {
     public class Client : EntityBase
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+        public Department Department { get; set; }
 
-        public override string ToString() => $"{Id}. {FirstName} {LastName}";
+        public override string ToString()
+        {
+            StringBuilder sb = new();
+            sb.AppendLine($"Id: {Id}");
+            sb.AppendLine($"   First name: {FirstName}    Last name: {LastName}");
+            sb.AppendLine($"   Department: {Department}");
 
+            return sb.ToString();
+        }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace CarServiceApp.Services
+﻿namespace CarServiceApp.Data.DummyData
 {
-    public interface IDataHandler
+    public interface IDummyDataHandler
     {
         public void AddEmployees();
 
