@@ -1,0 +1,38 @@
+29.09.2022 13:08:51 - Client Added - Id: 15
+   First name: tom    Last name: tom
+   Department: CustomerService
+
+04.10.2022 11:21:44 - Employee Added - Id: 9
+   First name: Miko    Last name: Miko
+   Department: CustomerService
+   Salary: 7888   Age: 17
+   Employeed from: 12-01-2012
+
+05.10.2022 09:28:32 - Employee Added - Id: 9
+   First name: Test    Last name: Testowy
+   Department: Customer Service
+   Salary: 8900   Age: 41
+   Employeed from: 01-10-2017
+
+05.10.2022 09:57:21 - Client Added - Id: 1
+   First name: Tom    Last name: Tomek
+   Department: Customer Service
+
+06.10.2022 08:31:17 - Client Added - Id: 9
+   First name: Tomek    Last name: Wlazło
+   Department: Mechanical Workshop
+
+06.10.2022 08:32:46 - Client Added - Id: 10
+   First name: Mariusz    Last name: Wojak
+   Department: Spare Parts
+
+06.10.2022 08:58:56 - Client Added - Id: 10
+   First name: Tomasz    Last name: Walczak
+   Department: Body and Paint Workshop
+
+06.10.2022 09:04:46 - Employee Added - Id: 9
+   First name: Marcin    Last name: Biegun
+   Department: Body and Paint Workshop
+   Salary: 9890   Age: 40
+   Employeed from: 01-10-2019
+

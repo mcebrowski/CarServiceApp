@@ -1,0 +1,9 @@
+﻿FirstName;LastName;Department;Salary;DateOfBirth;StartOfEmployment;IsManager
+Anna;Nowakowska;Customer Service;7500;25.05.1991;01.08.2012;false
+Monika;Dziuba;Customer Service;8900;30.07.1985;20.03.2008;true
+Damian;Bednarz;Spare Parts;9300;12.11.1982;01.03.2007;true
+Kamil ;Pawlak;Spare Parts;7150;30.04.1989;15.03.2017;false
+Zbigniew;Wolny;Body and Paint Workshop;11700;30.09.1975;10.07.2004;true
+Tomasz;Nowak;Body and Paint Workshop;9800;07.12.1981;20.02.2013;false
+Adam;Teodorczyk;Mechanical Workshop;10600;01.09.1980;20.05.2009;true
+Michał;Zielonka;Mechanical Workshop;8600;30.04.1992;15.04.2018;false

@@ -1,8 +1,0 @@
-{"FirstName":"Anna","LastName":"Nowakowska","Department":1,"IsManager":false,"Salary":7500,"DateOfBirth":"1991-05-25T00:00:00","StartOfEmployment":"2012-08-01T00:00:00","Id":1}
-{"FirstName":"Monika","LastName":"Dziuba","Department":1,"IsManager":true,"Salary":8900,"DateOfBirth":"1985-07-30T00:00:00","StartOfEmployment":"2008-03-20T00:00:00","Id":2}
-{"FirstName":"Damian","LastName":"Bednarz","Department":4,"IsManager":true,"Salary":9300,"DateOfBirth":"1982-11-12T00:00:00","StartOfEmployment":"2007-09-01T00:00:00","Id":3}
-{"FirstName":"Kamil","LastName":"Pawlak","Department":4,"IsManager":false,"Salary":7150,"DateOfBirth":"1989-04-30T00:00:00","StartOfEmployment":"2017-03-15T00:00:00","Id":4}
-{"FirstName":"Zbigniew","LastName":"Wolny","Department":3,"IsManager":true,"Salary":11700,"DateOfBirth":"1975-09-30T00:00:00","StartOfEmployment":"2004-07-10T00:00:00","Id":5}
-{"FirstName":"Tomasz","LastName":"Nowak","Department":3,"IsManager":false,"Salary":9800,"DateOfBirth":"1981-12-07T00:00:00","StartOfEmployment":"2013-02-20T00:00:00","Id":6}
-{"FirstName":"Adam","LastName":"Teodorczyk","Department":2,"IsManager":true,"Salary":10600,"DateOfBirth":"1980-09-01T00:00:00","StartOfEmployment":"2009-05-20T00:00:00","Id":7}
-{"FirstName":"Micha\u0142","LastName":"Zielonka","Department":2,"IsManager":false,"Salary":8600,"DateOfBirth":"1992-04-30T00:00:00","StartOfEmployment":"2018-04-15T00:00:00","Id":8}
